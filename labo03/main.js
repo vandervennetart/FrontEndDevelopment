@@ -8,6 +8,8 @@
     const showMoreTekst = document.querySelector("#more");
     const showLessTekst = document.querySelector("#less");
 
+    const figure = document.querySelector(".intro figure")
+
     let picHidden = true;
 
     menuBtn.addEventListener("click", function () {
@@ -26,6 +28,39 @@
 
         picHidden = !picHidden;
     });
+
+
+
+
+
+    const span = document.createElement("span");
+
+    span.className = "imgSpan"
+
+    figure.appendChild(span);
+
+    figure.addEventListener("mouseover", function () {
+        span.style.display = "initial"
+    });
+
+    figure.addEventListener("mousemove", function (event){
+        const y = event.clientY - event.target.getBoundingClientRect().top
+        const x = event.clientX - event.target.getBoundingClientRect().left;
+
+        span.innerText = Math.floor(x) + ", " + Math.floor(y);
+    })
+
+    figure.addEventListener("mouseout", function () {
+        span.style.display = "none";
+    });
+
+
+
+
+
+
+
+
 
     showMoreBtn.click();
 })();

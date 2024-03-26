@@ -30,6 +30,7 @@ html {
 figure,
 body {
     margin: 0;
+    position: relative;
 }
 
 .container {
@@ -63,6 +64,14 @@ img {
 
 button {
     z-index: 2;
+}
+
+.imgSpan{
+    color: var(--white);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5em;
 }
 
 /* HEADER */

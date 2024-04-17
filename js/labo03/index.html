@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="script.js" defer></script>
+        
+    </head>
+    <body>
+        <main class="container">
+            <h1>Labo JS Syntax</h1>
+            <p>👀 kijk naar je console!</p>
+            <section>
+                <h2>Arrays</h2>
+                <p>
+                    Zorg dat het resultaat van alle Array oefeningen zichtbaar
+                    is in je console!
+                </p>
+
+                <div>
+                    <label for="nummer">geef een nummer tussen 0 en 500:</label>
+                </div>
+                <div><input type="text" id="nummer" name="nummer" /></div>
+
+                <button id="btn-nummer">start</button>
+            </section>
+            <section>
+                <h2>Dobbelsteen</h2>
+
+                <div>
+                    <label for="input-gooi"
+                        >Hoeveel ogen wil je werpen? [3,10]</label
+                    >
+                </div>
+                <div>
+                    <input required id="input-gooi" type="number" />
+                    <span id="error-gooi" role="alert"></span>
+                </div>
+                <button id="btn-gooi">start</button>
+            </section>
+            <section>
+                <h2>Rechthoek</h2>
+                <p>👀 in je console!</p>
+            </section>
+            <section>
+                <h2>RTDD</h2>
+                <div class="field">
+                    <button></button>
+                    <button></button>
+                </div>
+            </section>
+
+            <section>
+                <h2>Event Delegation</h2>
+                <p>
+                    <a href="event-delegation.html"
+                        >OEFENING EVENT DELEGATION</a
+                    >
+                </p>
+            </section>
+
+            <section>
+                <h2>Extra</h2>
+                <div>
+                    <label for="input-piramids">nr of pyramids</label>
+                </div>
+                <div>
+                    <input id="input-piramids" type="number" />
+                    <span id="error-piramids" role="alert"></span>
+                </div>
+                <button id="btn-piramids">start</button>
+            </section>
+        </main>
+    </body>
 </html>

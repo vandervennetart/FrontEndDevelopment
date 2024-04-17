@@ -1,0 +1,38 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    background-color: #fffffd;
+
+}
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+section {
+    margin: 4rem 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+.relative {
+    position: relative;
+}
+
+
+/* RTDD */
+.field {
+    min-height: 100%;
+    display: flex;
+}
+
+.field button {
+    flex-grow: 1;
+}

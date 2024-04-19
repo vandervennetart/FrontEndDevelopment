@@ -24,6 +24,7 @@
         }
 
         validate() {
+            this.errors = [];
             this.validators.forEach((validator) => {
                 if (this.errors.find((err) => err.name === validator.name))
                     return;
@@ -96,7 +97,7 @@
             // zoek en verwijder alle elementen **in het formulier**
             // met de class `.field-error`
 
-            this.errors = [];
+            
 
             this.form
                 .querySelectorAll(".field-error")

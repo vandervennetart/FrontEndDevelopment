@@ -123,7 +123,7 @@
                 const errorList = document.querySelector("div.errorSummary ul").appendChild(document.createElement("li"));
 
                 const errElement = document.createElement("a");
-                errElement.href = `#${err.field.id}`;
+                errElement.href = `#${err.name}-error`;
                 errElement.innerText = err.message
 
                 

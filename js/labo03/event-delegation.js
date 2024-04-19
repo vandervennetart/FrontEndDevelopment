@@ -27,4 +27,14 @@
 
         ball.style.borderStyle = "solid";
     });
+
+
+    document.body.addEventListener("mouseover", function (event) {
+        const ball = event.target;
+        if (ball.tagName !== "SPAN") return;
+
+
+        ball.style.filter = "invert(1)";
+    });
+
 })();

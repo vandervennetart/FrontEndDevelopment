@@ -1,0 +1,16 @@
+.container{
+    margin: auto;
+    padding: 1rem 2rem;
+}
+
+.warrior{
+    border: solid;
+    padding: .5rem 1rem;
+    min-width: 15rem;
+}
+
+.wContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}

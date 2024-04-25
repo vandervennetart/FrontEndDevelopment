@@ -1,0 +1,13 @@
+.field {
+    min-height: 100%;
+    display: flex;
+}
+.field button {
+    flex-grow: 1;
+}
+#red {
+    border-color: red;
+}
+#blue {
+    border-color: blue;
+}

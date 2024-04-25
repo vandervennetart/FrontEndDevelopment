@@ -1,145 +1,29 @@
 <!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Download de usertesting research paper</title>
-        <link
-            rel="stylesheet"
-            href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
-        />
-        <link rel="stylesheet" href="style.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <section>
-            <form id="downloadForm" action="#" novalidate>
-                <h1>Download de usertesting research paper</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <section id="warriorContainer" class="wContainer">
 
-                <div
-                    class="errorSummary"
-                    role="group"
-                    aria-labelledby="errorSummary-heading"
-                    tabindex="-1"
-                >
-                    <h2 id="errorSummary-heading">Er is een probleem</h2>
-                    <ul>
-                    </ul>
-                </div>
-
-                <div>
-                    <label for="firstname">
-                        <span class="field-label">Voornaam</span>
-                    </label>
-                    <input
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        autocomplete="given-name"
-                        required
-                        autofocus
-                        tabindex="0"
-                    />
-                </div>
-
-                <div>
-                    <label for="name">
-                        <span class="field-label">Naam</span>
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        autocomplete="family-name"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <fieldset>
-                        <legend>
-                            <span class="field-label">Geslacht</span>
-                        </legend>
-                        <div class="radiobutton">
-                            <!-- avoid a space between the radio button and the label -->
-                            <input
-                                type="radio"
-                                id="male"
-                                name="gender"
-                                value="male"
-                                aria-describedby="error_gender"
-                            /><label for="male">Man</label>
-                        </div>
-                        <div class="radiobutton">
-                            <input
-                                type="radio"
-                                id="female"
-                                name="gender"
-                                value="female"
-                                aria-describedby="error_gender"
-                            /><label for="female">Vrouw</label>
-                        </div>
-                        <div class="radiobutton">
-                            <input
-                                type="radio"
-                                id="other"
-                                name="gender"
-                                value="other"
-                                aria-describedby="error_gender"
-                            /><label for="other">Zeg ik liever niet</label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div>
-                    <label for="email">
-                        <span class="field-label">E-mail</span>
-                    </label>
-                    <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        autocomplete="email"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label for="zipcode">
-                        <span class="field-label">Postcode</span>
-                        <span class="field-hint"
-                            >Optioneel en bestaat uit 4 nummers</span
-                        >
-                    </label>
-                    <input
-                        type="text"
-                        inputmode="numeric"
-                        name="zipcode"
-                        id="zipcode"
-                        autocomplete="postal-code"
-                    />
-                </div>
-
-                <div class="checkbox">
-                    <input
-                        type="checkbox"
-                        id="privacy"
-                        name="privacy"
-                        required
-                    />
-                    <label for="privacy">
-                        <span class="field-label"
-                            >Ik ga akkoord met het verwerken van mijn gegevens
-                            zoals aangegeven in het privacybeleid
-                            <abbr title="required">*</abbr>
-                        </span>
-                    </label>
-                </div>
-
-                <div>
-                    <button type="submit">Download de paper</button>
-                </div>
-            </form>
         </section>
-    </body>
+        <section id="battleGround">
+            <select name="names1" id="names1">
+
+            </select>
+
+            <button id="fight">fight</button>
+
+            <select name="names2" id="names2">
+
+            </select>
+        </section>
+    </div>
+    
+</body>
 </html>

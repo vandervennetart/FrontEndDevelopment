@@ -1,10 +1,10 @@
-let chance = .1
+let chance = 0.1;
 
 const fixCar = function () {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             // 50% chance dad fixes the car
-            if (Math.random() > .5) resolve("car fixed");
+            if (Math.random() > 0.5) resolve("car fixed");
             else reject("dad didn't find the problem");
         }, 1000);
     });
@@ -33,7 +33,7 @@ const haveIceCream = function () {
 fixCar()
     .catch(() => {
         console.log("taking the bus");
-        chance = .5
+        chance = 0.5;
     })
     .then(goToPark)
     .then(haveIceCream)

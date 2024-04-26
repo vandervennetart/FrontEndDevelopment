@@ -19,7 +19,13 @@
         fetch(`https://rtdd.bartdelrue.ikdoeict.be/${color}`, {
             method: "PUT",
         })
+            .then((response) => {
+                if (!response.ok) throw new Error(response.statusCode);
+            })
             .then(() => fetch("https://rtdd.bartdelrue.ikdoeict.be/status"))
+            .then((response) => {
+                if (!response.ok) throw new Error(response.statusCode);
+            })
             .then((response) => response.json())
             .then((json) => {
                 red.innerText = json.red;

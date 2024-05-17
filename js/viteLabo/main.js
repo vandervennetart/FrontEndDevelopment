@@ -15,21 +15,7 @@ fetch(`https://dummyapi.online/api/blogposts`, {
         return response.json();
     })
     .then((json) => {
-        const labels = [
-            "jan",
-            "feb",
-            "mar",
-            "apr",
-            "mei",
-            "jun",
-            "jul",
-            "aug",
-            "sep",
-            "okt",
-            "nov",
-            "dec",
-        ];
-        const values = [];
+        
         json.map((element) => {
             element.date_published = dayjs(element.date_published)
                 .locale("nl-be")
@@ -37,27 +23,26 @@ fetch(`https://dummyapi.online/api/blogposts`, {
             console.log(`${element.author} - ${element.date_published}`);
             console.log();
         });
-        labels.forEach((month) => {
-            values.push(
-                json.filter((element) => {
-                    return element.date_published.substring(4, 7) === month;
-                }).length
-            );
-        });
+        const months = json.reduce((acc, current)=>{
+            
+            if (!acc[current.date_published.substring(4, 7)]) {
+                acc[current.date_published.substring(4, 7)] = 0;
+            }
+            acc[current.date_published.substring(4, 7)] += 1
+            return acc
+        }, {})
 
-        console.log(values);
 
         const ctx = document.querySelector("#myChart");
 
-        console.log(ctx);
 
         new Chart(ctx, {
             type: "pie",
             data: {
-                labels: labels,
+                labels: Object.keys(months),
                 datasets: [
                     {
-                        data: values,
+                        data: Object.values(months),
                         backgroundColor: barColors,
                     },
                 ],

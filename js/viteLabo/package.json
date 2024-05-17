@@ -12,6 +12,8 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
+    "chart.js": "^4.4.2",
+    "dayjs": "^1.11.11",
     "hello-world-npm": "^1.1.1"
   }
 }

@@ -1,61 +1,59 @@
-"use strict";
-(function () {
-    const red = document.querySelector("#red");
-    const blue = document.querySelector("#blue");
+const red = document.querySelector("#red");
+const blue = document.querySelector("#blue");
 
-    // use promise.then()
-    const rtddFetch = function () {
-        const color = this.dataset.color;
+// use promise.then()
+const rtddFetch = function () {
+    const color = this.dataset.color;
 
-        // 1. send a put request to `https://rtdd.bartdelrue.ikdoeict.be/${color}`, no body
-        // 2. then... send a get request to `https://rtdd.bartdelrue.ikdoeict.be/status`
-        // 3. then... update the buttons with the object you received
-        // red.innerText = status.red;
-        // red.style.flexGrow = status.red;
-        // blue.innerText = status.blue;
-        // blue.style.flexGrow = status.blue;
-        // 4. catch errors
+    // 1. send a put request to `https://rtdd.bartdelrue.ikdoeict.be/${color}`, no body
+    // 2. then... send a get request to `https://rtdd.bartdelrue.ikdoeict.be/status`
+    // 3. then... update the buttons with the object you received
+    // red.innerText = status.red;
+    // red.style.flexGrow = status.red;
+    // blue.innerText = status.blue;
+    // blue.style.flexGrow = status.blue;
+    // 4. catch errors
 
-        fetch(`http://localhost:8080/${color}`, {
-            method: "PUT",
+    fetch(`http://localhost:8080/${color}`, {
+        method: "PUT",
+    })
+        .then((response) => {
+            if (!response.ok) throw new Error(response.statusCode);
         })
-            .then((response) => {
-                if (!response.ok) throw new Error(response.statusCode);
-            })
-            .then(() => fetch("http://localhost:8080/"))
-            .then((response) => {
-                if (!response.ok) throw new Error(response.statusCode);
-            return response;} )
-            .then((response) => response.json())
-            .then((json) => {
-                red.innerText = json.red;
-                red.style.flexGrow = json.red;
-                blue.innerText = json.blue;
-                blue.style.flexGrow = json.blue;
-            })
-            .catch(() => console.error("de data kan niet aangepast worden"));
-    };
-
-    // use aync / await
-    const rtddFetchAsync = async function () {
-        const color = this.dataset.color;
-
-        try {
-            await fetch(`http://localhost:8080/${color}`, {
-                method: "PUT",
-            });
-            const response = await fetch("http://localhost:8080/");
-            const json = await response.json();
-
+        .then(() => fetch("http://localhost:8080/"))
+        .then((response) => {
+            if (!response.ok) throw new Error(response.statusCode);
+            return response;
+        })
+        .then((response) => response.json())
+        .then((json) => {
             red.innerText = json.red;
             red.style.flexGrow = json.red;
             blue.innerText = json.blue;
             blue.style.flexGrow = json.blue;
-        } catch {
-            console.error("de data kan niet aangepast worden");
-        }
-    };
+        })
+        .catch(() => console.error("de data kan niet aangepast worden"));
+};
 
-    red.addEventListener("click", rtddFetchAsync);
-    blue.addEventListener("click", rtddFetch);
-})();
+// use aync / await
+const rtddFetchAsync = async function () {
+    const color = this.dataset.color;
+
+    try {
+        await fetch(`http://localhost:8080/${color}`, {
+            method: "PUT",
+        });
+        const response = await fetch("http://localhost:8080/");
+        const json = await response.json();
+
+        red.innerText = json.red;
+        red.style.flexGrow = json.red;
+        blue.innerText = json.blue;
+        blue.style.flexGrow = json.blue;
+    } catch {
+        console.error("de data kan niet aangepast worden");
+    }
+};
+
+red.addEventListener("click", rtddFetchAsync);
+blue.addEventListener("click", rtddFetch);

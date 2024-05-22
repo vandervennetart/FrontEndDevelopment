@@ -16,16 +16,16 @@
         // blue.style.flexGrow = status.blue;
         // 4. catch errors
 
-        fetch(`https://rtdd.bartdelrue.ikdoeict.be/${color}`, {
+        fetch(`http://localhost:8080/${color}`, {
             method: "PUT",
         })
             .then((response) => {
                 if (!response.ok) throw new Error(response.statusCode);
             })
-            .then(() => fetch("https://rtdd.bartdelrue.ikdoeict.be/status"))
+            .then(() => fetch("http://localhost:8080/"))
             .then((response) => {
                 if (!response.ok) throw new Error(response.statusCode);
-            })
+            return response;} )
             .then((response) => response.json())
             .then((json) => {
                 red.innerText = json.red;
@@ -41,12 +41,10 @@
         const color = this.dataset.color;
 
         try {
-            await fetch(`https://rtdd.bartdelrue.ikdoeict.be/${color}`, {
+            await fetch(`http://localhost:8080/${color}`, {
                 method: "PUT",
             });
-            const response = await fetch(
-                "https://rtdd.bartdelrue.ikdoeict.be/status"
-            );
+            const response = await fetch("http://localhost:8080/");
             const json = await response.json();
 
             red.innerText = json.red;

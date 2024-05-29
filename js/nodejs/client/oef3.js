@@ -14,13 +14,13 @@ const rtddFetch = function () {
     // blue.style.flexGrow = status.blue;
     // 4. catch errors
 
-    fetch(`http://localhost:8080/${color}`, {
+    fetch(`https://rtddapi.artvandervennet.ikdoeict.be/${color}`, {
         method: "PUT",
     })
         .then((response) => {
             if (!response.ok) throw new Error(response.statusCode);
         })
-        .then(() => fetch("http://localhost:8080/"))
+        .then(() => fetch("https://rtddapi.artvandervennet.ikdoeict.be/"))
         .then((response) => {
             if (!response.ok) throw new Error(response.statusCode);
             return response;
@@ -32,7 +32,7 @@ const rtddFetch = function () {
             blue.innerText = json.blue;
             blue.style.flexGrow = json.blue;
         })
-        .catch(() => console.error("de data kan niet aangepast worden"));
+        .catch((e) => console.error(e));
 };
 
 // use aync / await
@@ -40,18 +40,23 @@ const rtddFetchAsync = async function () {
     const color = this.dataset.color;
 
     try {
-        await fetch(`http://localhost:8080/${color}`, {
-            method: "PUT",
-        });
-        const response = await fetch("http://localhost:8080/");
+        await fetch(
+            `https://rtddapi.artvandervennet.ikdoeict.be/${color}`,
+            {
+                method: "PUT",
+            }
+        );
+        const response = await fetch(
+            "https://rtddapi.artvandervennet.ikdoeict.be/"
+        );
         const json = await response.json();
 
         red.innerText = json.red;
         red.style.flexGrow = json.red;
         blue.innerText = json.blue;
         blue.style.flexGrow = json.blue;
-    } catch {
-        console.error("de data kan niet aangepast worden");
+    } catch (e){
+        console.error(e);
     }
 };
 

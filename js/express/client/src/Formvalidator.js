@@ -40,8 +40,8 @@ export class FormValidator {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-        this.showSummary();
-        this.showInlineErrors();
+        this.showSummary(this.errors);
+        this.showInlineErrors(this.errors);
     }
 
     createInlineError(error) {
@@ -104,8 +104,8 @@ export class FormValidator {
         //      verwijder de class 'invalid'
     }
 
-    showSummary() {
-        this.errors.forEach((err) => {
+    showSummary(errors) {
+        errors.forEach((err) => {
             const errorSummary = document.querySelector("div.errorSummary");
             errorSummary.style.display = "block";
             const errorList = document
@@ -113,7 +113,7 @@ export class FormValidator {
                 .appendChild(document.createElement("li"));
 
             const errElement = document.createElement("a");
-            errElement.href = `#${err.name}-error`;
+            errElement.href = `#${err.name}`;
             errElement.innerText = err.message;
 
             errorList.appendChild(errElement);

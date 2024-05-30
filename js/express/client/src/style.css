@@ -6,6 +6,7 @@
     --bg: #0c0c0c;
     --primary: #f1fff2;
     --accent: #ff1494;
+    --error-color: rgb(200, 0, 0);
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
@@ -176,4 +177,94 @@ form {
             font-weight: bold;
         }
     }
+}
+
+legend {
+    margin-bottom: 0.5em;
+}
+/* Label */
+label > span.field-label,
+legend > span.field-label {
+    display: block;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* if there is an error */
+label > span.field-error,
+legend > span.field-error {
+    display: inline-block;
+    margin-top: 0.25em;
+    color: var(--error-color);
+}
+
+/* hints or explanation for the user */
+label > span.field-hint,
+legend > span.field-hint {
+    display: inline-block;
+    margin: 0.25em 0em;
+    color: #666;
+}
+
+input {
+    border: 1px solid #ccc;
+    font-size: 1.2em;
+    padding: 0.75em;
+    width: 90%; /* fallback if calc isn't working */
+    width: calc(100% - 1.5em); /* full width minus padding */
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+input[inputmode="numeric"] {
+    width: 5em; /* 5em = 16px * 5 = 80px */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label > span.field-label {
+    font-size: 1em;
+    font-weight: normal;
+    display: inline;
+    cursor: pointer;
+}
+
+button {
+    border: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    padding: 4% 8%;
+    cursor: pointer;
+    margin-top: 1.75em;
+    box-shadow: 0px 0px 4px 2px #ddd; /* subtle shadow */
+}
+
+button:hover {
+    background-color: rgb(20, 110, 220);
+}
+
+input.invalid {
+    color: var(--error-color);
+    outline-color: var(--error-color);
+}
+
+label > abbr {
+    color: var(--error-color);
+    text-decoration: none;
+}
+
+.errorSummary{
+  display: none;
 }

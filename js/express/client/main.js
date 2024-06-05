@@ -77,12 +77,11 @@ form.addEventListener("submit", function (event) {
     postCat(payload)
         .then((data) => {
             // get cat by data.id
-            getCat(data.data.id).then((cat) =>{
-                console.log(cat[0])
-                addCatBox(cat[0], allCatsContainer);
-            }
-                
-            );
+            getCat(data.data.id)
+                .then((cat) => {
+                    addCatBox(cat[0], allCatsContainer);
+                })
+                .then(surprise);
         })
         .catch((errors) => {
             formValidator.showSummary(errors.message);
